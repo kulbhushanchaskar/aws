@@ -25,7 +25,7 @@ public class AwsApigatewayExampleApplication {
         return books;
     }
     
-    @GetMapping
+    @GetMapping("/test")
     public String test() {
         return "this is test api";
     }
