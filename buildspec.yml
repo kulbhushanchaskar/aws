@@ -1,13 +1,19 @@
-version: 2
-
+version: 0.2
 phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+    - echo In the pre_build phase...
   build:
     commands:
-      - echo 'Entered build phase'
-   post_build:
-     commands:
-       - echo build completed
+    - echo Build started on `date`
+  post_build:
+    commands:
+    - echo Build completed on `date`
+    - mvn package
+    - mv target/order-service.jar order-service.jar
 artifacts:
   files:
-    - target/order-service.jar
-  discards-paths: yes   
+  - order-service.jar
