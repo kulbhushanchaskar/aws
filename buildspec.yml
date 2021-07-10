@@ -12,7 +12,7 @@ phases:
   post_build:
     commands:
     - echo Build completed on `date`
-    - mvn package
+    - mvn clean package -DskipTests
     - mv target/order-service.jar order-service.jar
 artifacts:
   files:
